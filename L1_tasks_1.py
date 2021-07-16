@@ -21,19 +21,25 @@ def get_sum():
                         print(f'Необходимо только 3х значное число!!!')
                 else:
                     print(f'Ввод букв запрещен!!! вводить необходимо только 3х значное число!!!')
-            else:
-                if numbers_User[0] == '-':
-                    nowNumbers = numbers_User[1:4]
-                    print(len(nowNumbers))
+            elif numbers_User[0] == '-':
+                nowNumbers = numbers_User[1:]
+                if nowNumbers.isdigit():
                     if 3 == len(nowNumbers):
-                        sumNumbers = int(nowNumbers[0]) * (-1)
-                        for x in nowNumbers[1:3]:
+                        sumNumbers = 0
+                        for x in nowNumbers[1:]:
+                            """
+                            Вариант, если пользователь вводит отрицательное число, тогда первое число
+                            берем со знаком "-" и складываем с двумя положительными числами идущие после него.
+                            """
                             sumNumbers = sumNumbers + int(x)
-                        print(f'Сумма чисел равна: {sumNumbers} ')
+                        totalSum = int(nowNumbers[:1]) * (-1) + sumNumbers
+                        print(f'Сумма чисел равна: {totalSum} ')
                     else:
                         print(f'Необходимо только 3х значное число!!!')
                 else:
-                    print(f'Необходимо только 3х значное число!!!')
+                    print(f'Ввод букв запрещен!!! вводить необходимо только 3х значное число!!!')
+            else:
+                break
 
 
 def get_multiplication():
@@ -73,4 +79,4 @@ def get_multiplication():
 
 
 get_sum()
-get_multiplication()
+# get_multiplication()
