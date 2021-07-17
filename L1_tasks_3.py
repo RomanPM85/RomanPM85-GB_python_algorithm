@@ -19,4 +19,5 @@ def equationFun():
     b = y2 - k * x2
     print(" y = %.2f*x + %.2f" % (k, b))
 
+
 equationFun()
